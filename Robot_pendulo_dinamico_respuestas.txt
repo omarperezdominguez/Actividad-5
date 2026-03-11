@@ -1,0 +1,39 @@
+ 
+Jacobiano =
+ 
+-l1*sin(th1(t))
+ l1*cos(th1(t))
+              0
+              0
+              0
+              1
+ 
+ 
+V(t) =
+ 
+-l1*sin(th1(t))*diff(th1(t), t)
+ l1*cos(th1(t))*diff(th1(t), t)
+                              0
+ 
+ 
+W(t) =
+ 
+              0
+              0
+diff(th1(t), t)
+ 
+ 
+P01 =
+ 
+(lc1*cos(th1(t)))/2
+(lc1*sin(th1(t)))/2
+                  0
+ 
+Energía Cinética en el Eslabón 1
+      |  d        | 2    |  d        | 2     ______           __          2             2
+Izz1  | -- th1(t) |      | -- th1(t) |   cos(th1(t) - th1(t)) m1 (l1 |lc1|  + 2 lc1 |l1| ) (2 l1 + lc1)
+      | dt        |      | dt        |
+--------------------- + -------------------------------------------------------------------------------
+          2                                                 8 l1 lc1
+
+Elapsed time is 4.690858 seconds.
