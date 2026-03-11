@@ -1,0 +1,110 @@
+Velocidad lineal obtenida mediante el Jacobiano lineal del Eslabón 2
+/ - th1p(t) (l1 sin(th1(t)) + l2 #1) - l2 #1 th2p(t) \
+|                                                    |
+|  th1p(t) (l1 cos(th1(t)) + l2 #2) + l2 #2 th2p(t)  |
+|                                                    |
+\                          0                         /
+
+where
+
+   #1 == sin(th1(t) + th2(t))
+
+   #2 == cos(th1(t) + th2(t))
+
+
+Velocidad angular obtenida mediante el Jacobiano angular del Eslabón 2
+/         0         \
+|                   |
+|         0         |
+|                   |
+\ th1p(t) + th2p(t) /
+
+Velocidad lineal obtenida mediante el Jacobiano lineal del Eslabón 1
+/ -l1 sin(th1(t)) th1p(t) \
+|                         |
+|  l1 cos(th1(t)) th1p(t) |
+|                         |
+\            0            /
+
+Velocidad angular obtenida mediante el Jacobiano angular del Eslabón 1
+/    0    \
+|         |
+|    0    |
+|         |
+\ th1p(t) /
+
+              2            2     ______           __          2             2
+Izz1 |th1p(t)|    |th1p(t)|  cos(th1(t) - th1(t)) m1 (l1 |lc1|  + 2 lc1 |l1| ) (2 l1 + lc1)
+--------------- + -------------------------------------------------------------------------
+       2                                           8 l1 lc1
+
+Energía Cinética en el Eslabón 2
+/                                                                                        /
+| __ /                                                              lc2 sin(th2(t)) #1 \ | _______          __       ______  __
+| m2 | th1p(t) (l1 sin(th1(t)) + l2 sin(#4)) + l2 sin(#4) th2p(t) + ------------------ | | th1p(t) (sin(#3) l2 + sin(th1(t)) l1)
+\    \                                                                       2         / \
+
+                              ______  ___    \ \             / _______   _______ \
+     _______         __   sin(th2(t)) lc2 #2 | |             | th1p(t)   th2p(t) |
+   + th2p(t) sin(#3) l2 + ------------------ | |/2 + Izz2 #1 | ------- + ------- |
+                                   2         / /             \    2         2    /
+
+     /                                                                                        /
+     | __ /                                                              lc2 cos(th2(t)) #1 \ | _______          __       ______  __
+   + | m2 | th1p(t) (l1 cos(th1(t)) + l2 cos(#4)) + l2 cos(#4) th2p(t) + ------------------ | | th1p(t) (cos(#3) l2 + cos(th1(t)) l1)
+     \    \                                                                       2         / \
+
+                              ______  ___    \ \
+     _______         __   cos(th2(t)) lc2 #2 | |
+   + th2p(t) cos(#3) l2 + ------------------ | |/2
+                                   2         / /
+
+where
+
+   #1 == th1p(t) + th2p(t)
+
+         _______   _______
+   #2 == th1p(t) + th2p(t)
+
+         ______   ______
+   #3 == th1(t) + th2(t)
+
+   #4 == th1(t) + th2(t)
+
+
+Energía Cinética Total
+          /
+Izz1 #5   | __ /                                                              lc2 sin(th2(t)) #1 \
+------- + | m2 | th1p(t) (l1 sin(th1(t)) + l2 sin(#4)) + l2 sin(#4) th2p(t) + ------------------ |
+   2      \    \                                                                       2         /
+
+   /                                                                  ______  ___    \ \             / _______   _______ \
+   | _______          __       ______  __    _______         __   sin(th2(t)) lc2 #2 | |             | th1p(t)   th2p(t) |
+   | th1p(t) (sin(#3) l2 + sin(th1(t)) l1) + th2p(t) sin(#3) l2 + ------------------ | |/2 + Izz2 #1 | ------- + ------- |
+   \                                                                       2         / /             \    2         2    /
+
+     /                                                                                        /
+     | __ /                                                              lc2 cos(th2(t)) #1 \ | _______          __       ______  __
+   + | m2 | th1p(t) (l1 cos(th1(t)) + l2 cos(#4)) + l2 cos(#4) th2p(t) + ------------------ | | th1p(t) (cos(#3) l2 + cos(th1(t)) l1)
+     \    \                                                                       2         / \
+
+                              ______  ___    \ \            ______           __          2             2
+     _______         __   cos(th2(t)) lc2 #2 | |     #5 cos(th1(t) - th1(t)) m1 (l1 |lc1|  + 2 lc1 |l1| ) (2 l1 + lc1)
+   + th2p(t) cos(#3) l2 + ------------------ | |/2 + -----------------------------------------------------------------
+                                   2         / /                                  8 l1 lc1
+
+where
+
+   #1 == th1p(t) + th2p(t)
+
+         _______   _______
+   #2 == th1p(t) + th2p(t)
+
+         ______   ______
+   #3 == th1(t) + th2(t)
+
+   #4 == th1(t) + th2(t)
+
+                  2
+   #5 == |th1p(t)|
+
