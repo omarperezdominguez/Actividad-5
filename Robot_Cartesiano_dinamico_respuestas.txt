@@ -1,0 +1,99 @@
+====================================================
+ INICIANDO MODELO DINÁMICO (ROBOT CARTESIANO 3P) 
+====================================================
+--- Matrices de Transformación Homogénea (Globales) ---
+Matriz T1:
+/ 1,  0,  0,   0   \
+|                  |
+| 0,  0, -1,   0   |
+|                  |
+| 0, -1,  0, l1(t) |
+|                  |
+\ 0,  0,  0,   1   /
+
+Matriz T2:
+/ 1, 0,  0,    0   \
+|                  |
+| 0, 1,  0, -l2(t) |
+|                  |
+| 0, 0, -1,  l1(t) |
+|                  |
+\ 0, 0,  0,    1   /
+
+Matriz T3:
+/ 1, 0,  0,    0   \
+|                  |
+| 0, 1,  0, -l2(t) |
+|                  |
+| 0, 0, -1,  l1(t) |
+|                  |
+\ 0, 0,  0,    1   /
+
+--- Jacobiano Lineal (Jv) ---
+/ 0,  0,  0 \
+|           |
+| 0, -1,  0 |
+|           |
+\ 1,  0, -1 /
+
+--- Jacobiano Angular (Jw) ---
+/ 0, 0, 0 \
+|         |
+| 0, 0, 0 |
+|         |
+\ 0, 0, 0 /
+
+Velocidad Lineal del Efector Final (V):
+/          0          \
+|                     |
+|         d           |
+|      - -- l2(t)     |
+|        dt           |
+|                     |
+|  d          d       |
+| -- l1(t) - -- l3(t) |
+\ dt         dt       /
+
+Velocidad Angular del Efector Final (W):
+/ 0 \
+|   |
+| 0 |
+|   |
+\ 0 /
+
+--- Calculando Energías ---
+Energía Cinética Total (K):
+   2             2      2           2      2
+l1p  m1   m2 (l1p  + l2p )   m3 (l1p  + l2p )
+------- + ---------------- + ----------------
+   2              2                  2
+
+Energía Potencial Total (U):
+g m1 l1(t) - g m2 (lc2 - l1(t)) - g m3 (lc3 - l1(t))
+
+====================================================
+Lagrangiano (L = K - U):
+====================================================
+   2             2      2           2      2
+l1p  m1   m2 (l1p  + l2p )   m3 (l1p  + l2p )
+------- + ---------------- + ---------------- - g m1 l1(t) + g m2 (lc2 - l1(t)) + g m3 (lc3 - l1(t))
+   2              2                  2
+
+====================================================
+FUERZAS DE LOS ACTUADORES PRISMÁTICOS (F1, F2, F3):
+====================================================
+/ #1 \
+|    |
+| #1 |
+|    |
+\ #1 /
+
+where
+
+                      d               d               d
+   #1 == l1pp + g m1 -- l1(t) + g m2 -- l1(t) + g m3 -- l1(t)
+                     dt              dt              dt
+
+
+Elapsed time is 2.980369 seconds.
+>> 
